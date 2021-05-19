@@ -7,3 +7,32 @@
 # 想要什么插件就单独的拉取什么插件就好，或者告诉我，我把插件放我的插件包就行了
 # 软件包地址：https://github.com/281677160/openwrt-package
 # 拉取插件请看《各种命令的简单介绍》第4条、第5条说明,不管大神还是新手请认真的看看,再次强调请不要一下子就拉取别人一堆插件的插件包,容易造成编译错误的
+sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default
+
+
+sed -i '$a src-git diy https://github.com/firker/diy-ziyong' feeds.conf.default
+sed -i '$a src-git passwall https://github.com/xiaorouji/openwrt-passwall' feeds.conf.default
+
+
+git clone https://github.com/linkease/ddnsto-openwrt package/luci-app-ddnsto
+git clone -b 18.06 https://github.com/garypang13/luci-theme-edge.git package/luci-theme-edge
+git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
+git clone https://github.com/sirpdboy/luci-theme-opentopd.git package/luci-theme-opentopd
+git clone https://github.com/jerrykuku/luci-app-argon-config.git package/luci-app-argon-config
+git clone https://github.com/tty228/luci-app-serverchan.git package/luci-app-serverchan
+git clone https://github.com/jerrykuku/luci-app-jd-dailybonus.git package/luci-app-jd-dailybonus
+git clone https://github.com/jerrykuku/luci-app-vssr.git  package/luci-app-vssr
+git clone https://github.com/project-lede/luci-app-godproxy.git package/luci-app-godproxy
+git clone https://github.com/garypang13/luci-app-bypass.git package/luci-app-bypass
+git clone https://github.com/garypang13/luci-app-dnsfilter.git package/luci-app-dnsfilter
+git clone https://github.com/BCYDTZ/luci-app-UUGameAcc.git package/luci-app-UUGameAcc
+svn co https://github.com/garypang13/openwrt-packages/trunk/smartdns-le package/smartdns-le
+
+rm -rf ./package/lean/luci-theme-argon
+
+rm -rf ./feeds/packages/net/https-dns-proxy
+rm -rf ./feeds/diy/luci-app-vssr-plus
+rm -rf ./feeds/diy/vssr
+
+svn co https://github.com/Lienol/openwrt-packages/trunk/net/https-dns-proxy feeds/packages/net/https-dns-proxy
+
